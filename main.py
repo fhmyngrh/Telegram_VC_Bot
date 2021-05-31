@@ -107,9 +107,9 @@ async def volume_bot(_, message):
     usage = "**Usage:**\n/volume [1-200]"
     chat_id = message.chat.id
     if chat_id not in db:
-        return await message.reply_text("VC isn't started")
+        return await message.reply_text("Zelda isn't started")
     if "call" not in db[chat_id]:
-        return await message.reply_text("VC isn't started")
+        return await message.reply_text("Zelda isn't started")
     vc = db[chat_id]["call"]
     if len(message.command) != 2:
         return await message.reply_text(usage, quote=False)
@@ -127,9 +127,9 @@ async def volume_bot(_, message):
 async def pause_song_func(_, message):
     chat_id = message.chat.id
     if chat_id not in db:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     if "call" not in db[chat_id]:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     if "paused" in db[chat_id]:
         if db[chat_id]["paused"] == True:
             return await message.reply_text("**Already paused**")
@@ -145,9 +145,9 @@ async def pause_song_func(_, message):
 async def resume_song(_, message):
     chat_id = message.chat.id
     if chat_id not in db:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     if "call" not in db[chat_id]:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     if "paused" in db[chat_id]:
         if db[chat_id]["paused"] == False:
             return await message.reply_text("**Already playing**")
@@ -163,9 +163,9 @@ async def resume_song(_, message):
 async def skip_func(_, message):
     chat_id = message.chat.id
     if chat_id not in db:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     if "queue" not in db[chat_id]:
-        return await message.reply_text("**VC isn't started**")
+        return await message.reply_text("**Zelda isn't started**")
     queue = db[chat_id]["queue"]
     if queue.empty():
         return await message.reply_text(
